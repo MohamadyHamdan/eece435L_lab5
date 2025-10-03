@@ -32,7 +32,7 @@ def insert_user(user):
         conn.commit()
         inserted_user = get_user_by_id(cur.lastrowid)
     except:
-        conn().rollback()
+        conn.rollback()
     finally:
         conn.close()
     return inserted_user
@@ -108,3 +108,6 @@ def delete_user(user_id):
     finally:
         conn.close()
     return message
+
+if __name__ == "__main__":
+    create_db_table()
